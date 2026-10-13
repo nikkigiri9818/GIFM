@@ -242,3 +242,58 @@ if ("IntersectionObserver" in window && !reduceMotion) {
     .querySelectorAll(".comparison-list article, .final-cta")
     .forEach((el) => el.classList.add("in"));
 }
+
+
+
+
+/* =========================================================
+   Paste this at the END of app.js
+   - Counts the stats up (8, 5,000, 90) when they scroll into view
+   - Fades the new cards in (steps, reviews, stats, mentor facts)
+   ========================================================= */
+(function () {
+  const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (!("IntersectionObserver" in window) || reduce) return;
+
+  const format = (n) => n.toLocaleString("en-IN");
+
+  function countUp(el) {
+    const end = Number(el.dataset.count);
+    const duration = 1400;
+    const start = performance.now();
+    (function frame(now) {
+      const p = Math.min(1, (now - start) / duration);
+      const eased = 1 - Math.pow(1 - p, 3); // ease-out
+      el.textContent = format(Math.round(end * eased));
+      if (p < 1) requestAnimationFrame(frame);
+    })(start);
+  }
+
+  const io = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        io.unobserve(entry.target);
+        if (entry.target.dataset.count) countUp(entry.target);
+        else entry.target.classList.add("in");
+      });
+    },
+    { threshold: 0.25 },
+  );
+
+  document.querySelectorAll("[data-count]").forEach((el) => {
+    el.textContent = "0";
+    io.observe(el);
+  });
+
+  document
+    .querySelectorAll(
+      ".steps li, .review-card, .stats > div, .mentor-facts li",
+    )
+    .forEach((el) => {
+      const index = [...el.parentElement.children].indexOf(el);
+      el.style.setProperty("--d", index * 0.09 + "s");
+      el.classList.add("reveal");
+      io.observe(el);
+    });
+})();

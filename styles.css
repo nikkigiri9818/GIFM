@@ -219,7 +219,7 @@ nav a:hover {
   gap: 16px;
   font-size: 16px;
   font-weight: 700;
-  padding: 16px 26px;
+  padding: 11px 12px;
   min-height: 54px;
   box-shadow: 0 12px 30px -12px rgba(34, 211, 138, 0.75);
   transition:
@@ -251,7 +251,7 @@ nav a:hover {
 }
 .button.small {
   font-size: 14px;
-  padding: 11px 20px;
+  padding: 7px 16px;
   min-height: 44px;
   box-shadow: none;
 }
@@ -1204,7 +1204,7 @@ html:not(.js) .cta-chart .area {
   margin-top: 100px;
   background: var(--bg-3);
   border-top: 1px solid var(--line);
-  padding-top: 70px;
+  padding-top: 40px;
 }
 #footer-candles {
   position: absolute;
@@ -1260,9 +1260,10 @@ html:not(.js) .cta-chart .area {
   display: grid;
   grid-template-columns: 1.5fr 1fr 1fr 1.3fr;
   gap: 48px;
-  padding-block: 64px 44px;
-  border-top: 2px solid white;
-  margin-top: 20px;
+  /* padding-block: 64px 44px; */
+  /* border-top: 2px solid white;
+  margin-top: 20px; */
+  padding-bottom: 40px;
 }
 .footer-brand .brand {
   margin-bottom: 20px;
@@ -2067,5 +2068,251 @@ form .button {
   }
   .cta-chart .area {
     opacity: 0.5;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+/* =========================================================
+   GIFM — styles for the new content sections
+   (stats strip, how-it-works steps, student experiences,
+   mentor facts). Load AFTER styles.css and BEFORE responsive.css
+   ========================================================= */
+
+/* ---------- Stats strip ---------- */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  margin-top: 64px;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  background: linear-gradient(160deg, var(--panel-2), var(--panel));
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+.stats > div {
+  padding: 30px 28px;
+  border-right: 1px solid var(--line);
+}
+.stats > div:last-child {
+  border-right: 0;
+}
+.stats strong {
+  display: block;
+  font-family: var(--f-display);
+  font-size: clamp(36px, 4vw, 52px);
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  font-weight: 700;
+  color: var(--green);
+  font-variant-numeric: tabular-nums;
+}
+.stats > div > span {
+  display: block;
+  margin-top: 8px;
+  font-size: 15px;
+  line-height: 1.45;
+  color: var(--muted);
+}
+
+/* ---------- How it works ---------- */
+.steps {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+.steps li {
+  position: relative;
+  padding: 28px 24px 30px;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+}
+.steps li:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  top: 50px;
+  left: 100%;
+  width: 20px;
+  border-top: 2px dashed var(--green);
+  opacity: 0.5;
+}
+.step-no {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  margin-bottom: 22px;
+  border-radius: 50%;
+  background: var(--green);
+  color: var(--on-green);
+  font-family: var(--f-display);
+  font-size: 18px;
+  font-weight: 700;
+  box-shadow: 0 0 0 6px var(--green-glow);
+}
+.steps h3 {
+  font-size: 21px;
+}
+.steps p {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--muted);
+}
+
+/* ---------- Student experiences ---------- */
+.reviews-section {
+  background: var(--bg-2);
+  border-block: 1px solid var(--line);
+}
+.reviews {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+.review-card {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 30px;
+  background: linear-gradient(160deg, var(--panel-2), var(--panel));
+  border: 1px solid var(--line);
+  border-radius: 18px;
+}
+.review-card h3 {
+  margin: 0;
+  font-size: 22px;
+}
+.review-card p {
+  flex: 1;
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--muted);
+}
+.review-card figcaption {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding-top: 18px;
+  border-top: 1px solid var(--line);
+}
+.avatar {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--green-glow);
+  border: 1px solid rgba(34, 211, 138, 0.35);
+  color: var(--green);
+  font-family: var(--f-display);
+  font-size: 15px;
+  font-weight: 700;
+}
+.review-card figcaption strong {
+  display: block;
+  font-size: 16px;
+  line-height: 1.25;
+  color: #fff;
+}
+.review-card figcaption small {
+  font-size: 13px;
+  color: var(--muted);
+}
+.review-note {
+  margin: 28px 0 0;
+  text-align: center;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+/* ---------- Mentor facts ---------- */
+.mentor-facts {
+  list-style: none;
+  margin: 22px 0 24px;
+  padding: 0;
+  display: grid;
+  gap: 12px;
+}
+.mentor-facts li {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  font-size: 16px;
+  color: var(--muted);
+}
+.mentor-facts li::before {
+  content: "✓";
+  color: var(--green);
+  font-weight: 700;
+}
+.mentor-facts strong {
+  font-weight: 600;
+  color: #fff;
+}
+
+/* ---------- Responsive for the new sections ---------- */
+@media (max-width: 1024px) {
+  .steps {
+    gap: 16px;
+  }
+  .steps li {
+    padding: 24px 20px 26px;
+  }
+  .stats > div {
+    padding: 26px 22px;
+  }
+}
+@media (max-width: 900px) {
+  .stats {
+    grid-template-columns: 1fr 1fr;
+    margin-top: 48px;
+  }
+  .stats > div:nth-child(2) {
+    border-right: 0;
+  }
+  .stats > div:nth-child(-n + 2) {
+    border-bottom: 1px solid var(--line);
+  }
+  .steps {
+    grid-template-columns: 1fr 1fr;
+  }
+  .steps li::after {
+    display: none;
+  }
+  .reviews {
+    grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 560px) {
+  .stats > div {
+    padding: 22px 18px;
+  }
+  .stats > div > span {
+    font-size: 13px;
+  }
+  .steps {
+    grid-template-columns: 1fr;
+  }
+  .review-card {
+    padding: 24px 22px;
+  }
+  .review-card h3 {
+    font-size: 20px;
   }
 }
