@@ -195,7 +195,7 @@ nav {
   gap: 34px;
   font-size: 15px;
   font-weight: 500;
-  color: var(--muted);
+  color: #ffff;
 }
 nav a:hover {
   color: var(--green);
