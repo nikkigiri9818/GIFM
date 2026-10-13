@@ -1,0 +1,783 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="theme-color" content="#060b17" />
+    <meta name="color-scheme" content="dark" />
+    <title>GIFM Traders Academy | Learn the Markets with Clarity</title>
+    <meta
+      name="description"
+      content="Explore stock market education with GIFM Traders Academy. Learn technical analysis, risk management and trading discipline with mentor Gagandeep Singh."
+    />
+    <meta
+      property="og:title"
+      content="GIFM Traders Academy — Build your trading foundation"
+    />
+    <meta
+      property="og:description"
+      content="Practical learning. A structured approach. Personal mentorship."
+    />
+    <meta property="og:type" content="website" />
+    <link rel="icon" href="assets/logo.jpeg" type="image/jpeg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Instrument+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preload" as="image" href="assets/mentor.webp" />
+    <link rel="stylesheet" href="styles.css" />
+    <script defer src="app.js"></script>
+  </head>
+  <body>
+    <a class="skip" href="#main">Skip to content</a>
+    <div class="announcement">
+      Your next chapter starts with better market knowledge.
+      <a href="#enquire">Explore the next batch <span>↗</span></a>
+    </div>
+    <header>
+      <div class="nav wrap">
+        <a class="brand" href="#" aria-label="GIFM Traders Academy home"
+          ><img
+            src="assets/logo.jpeg"
+            width="200"
+            height="150"
+            alt="GIFM Traders Academy"
+        /></a>
+        <nav id="navigation" aria-label="Main navigation">
+          <a href="#learn">What you’ll learn</a><a href="#mentor">Your mentor</a
+          ><a href="#batches">Our batches</a><a href="#faq">FAQs</a>
+        </nav>
+        <button class="button small" data-enquire>
+          Enquire now <span>↗</span></button
+        ><button
+          class="menu"
+          aria-expanded="false"
+          aria-controls="navigation"
+          aria-label="Toggle menu"
+        >
+          ☰
+        </button>
+      </div>
+    </header>
+    <main id="main">
+      <canvas id="hero-candles" aria-hidden="true"></canvas>
+      <section class="hero wrap">
+        <div class="hero-copy">
+          <div class="eyebrow">
+            <span class="dot"></span> KNOWLEDGE FIRST. CONFIDENCE FOLLOWS.
+          </div>
+          <h1>
+            Understand the market.<br /><em>Find your<br />trading edge.</em>
+          </h1>
+          <p class="lead">
+            Move from scattered information to a structured approach. Build your
+            foundation in market analysis, risk management, and trading
+            discipline with GIFM Traders Academy.
+          </p>
+          <div class="hero-actions">
+            <button class="button" data-enquire>
+              Explore a demo class <span>↗</span></button
+            ><a class="text-link" href="#learn"
+              >Discover the learning path <span>↓</span></a
+            >
+          </div>
+          <div class="hero-checks">
+            <span>✓ Practical learning</span><span>✓ Personal mentorship</span
+            ><span>✓ Beginner friendly</span>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <div class="visual-top">
+            <span><i class="dot"></i> THE MINDSET BEHIND THE METHOD</span
+            ><span>01 / GIFM</span>
+          </div>
+          <img
+            class="mentor-hero"
+            src="assets/mentor.webp"
+            alt="Gagandeep Singh, professional stock trader and trainer"
+            width="850"
+            height="850"
+            fetchpriority="high"
+          />
+          <div class="chart-card" aria-hidden="true">
+            <small>PRICE ACTION</small>
+            <div class="mini-candles">
+              <i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+            </div>
+          </div>
+          <div class="mentor-caption">
+            <div>
+              <small>YOUR FOUNDER & MENTOR</small
+              ><strong>Gagandeep Singh</strong>
+            </div>
+            <a href="#mentor" aria-label="Meet Gagandeep Singh">↗</a>
+          </div>
+          <div class="visual-note">
+            <span class="note-icon">↗</span
+            ><span
+              >Learn the process.<br /><strong
+                >Build your perspective.</strong
+              ></span
+            >
+          </div>
+        </div>
+      </section>
+      <div class="topic-strip" aria-label="Topics covered">
+        <div class="ticker">
+          <div class="ticker-track">
+            <span>MARKET FUNDAMENTALS</span><span>TECHNICAL ANALYSIS</span
+            ><span>RISK MANAGEMENT</span><span>TRADING PSYCHOLOGY</span
+            ><span>PRICE ACTION</span><span>CHART READING</span
+            ><span>POSITION SIZING</span><span>TRADE PLANNING</span>
+            <span aria-hidden="true">MARKET FUNDAMENTALS</span
+            ><span aria-hidden="true">TECHNICAL ANALYSIS</span
+            ><span aria-hidden="true">RISK MANAGEMENT</span
+            ><span aria-hidden="true">TRADING PSYCHOLOGY</span
+            ><span aria-hidden="true">PRICE ACTION</span
+            ><span aria-hidden="true">CHART READING</span
+            ><span aria-hidden="true">POSITION SIZING</span
+            ><span aria-hidden="true">TRADE PLANNING</span>
+          </div>
+        </div>
+      </div>
+      <section id="learn" class="section wrap">
+        <div class="section-heading">
+          <div>
+            <div class="eyebrow">01 / THE LEARNING PATH</div>
+            <h2>A stronger foundation.<br />A clearer way forward.</h2>
+          </div>
+          <p>
+            Understand the “why” behind a decision, then learn how to put that
+            understanding into practice.
+          </p>
+        </div>
+        <div class="learning-grid">
+          <article>
+            <div class="card-top">
+              <span class="line-icon">⌁</span><span>01</span>
+            </div>
+            <h3>Read the market</h3>
+            <p>
+              Explore market fundamentals, price action, trends, and the
+              building blocks of technical analysis.
+            </p>
+            <div class="tags">
+              <span>Market structure</span><span>Chart reading</span>
+            </div>
+          </article>
+          <article>
+            <div class="card-top">
+              <span class="line-icon">◎</span><span>02</span>
+            </div>
+            <h3>Think in risk</h3>
+            <p>
+              Understand position sizing, stop-loss planning, and why managing
+              exposure comes before chasing a result.
+            </p>
+            <div class="tags">
+              <span>Risk awareness</span><span>Trade planning</span>
+            </div>
+          </article>
+          <article>
+            <div class="card-top">
+              <span class="line-icon">≋</span><span>03</span>
+            </div>
+            <h3>Build your discipline</h3>
+            <p>
+              Recognise emotional decisions and develop a repeatable process for
+              preparation, execution, and review.
+            </p>
+            <div class="tags">
+              <span>Psychology</span><span>Consistency</span>
+            </div>
+          </article>
+        </div>
+      </section>
+      <section class="approach section">
+        <div class="wrap approach-grid">
+          <div>
+            <div class="eyebrow">LESS NOISE. MORE UNDERSTANDING.</div>
+            <h2>
+              Sound familiar?<br /><span class="muted"
+                >Let’s change<br />the approach.</span
+              >
+            </h2>
+            <p>Learning to trade starts with asking better questions.</p>
+            <button class="button" data-enquire>
+              Find your starting point <span>↗</span>
+            </button>
+          </div>
+          <div class="comparison-list">
+            <article>
+              <div>
+                <small>FROM</small>
+                <h3>Following random tips</h3>
+              </div>
+              <span>↗</span>
+              <div>
+                <small>TO</small>
+                <h3>Understanding your setup</h3>
+                <p>Learn to explain the reasoning behind a trade.</p>
+              </div>
+            </article>
+            <article>
+              <div>
+                <small>FROM</small>
+                <h3>Reacting to every move</h3>
+              </div>
+              <span>↗</span>
+              <div>
+                <small>TO</small>
+                <h3>Working with a plan</h3>
+                <p>Define risk and a process before taking action.</p>
+              </div>
+            </article>
+            <article>
+              <div>
+                <small>FROM</small>
+                <h3>Learning without direction</h3>
+              </div>
+              <span>↗</span>
+              <div>
+                <small>TO</small>
+                <h3>A structured learning path</h3>
+                <p>Build concepts step by step, with room for questions.</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+      <section id="inside" class="section wrap gallery-section">
+        <div class="section-heading">
+          <div>
+            <div class="eyebrow">INSIDE THE ACADEMY</div>
+            <h2>See how the market<br />is taught.</h2>
+          </div>
+          <p>
+            Charts, live-market examples and open discussion. Learning that
+            stays practical from day one.
+          </p>
+        </div>
+        <div class="gallery">
+          <figure class="g-main">
+            <img
+              src="assets/gallery-1.webp"
+              width="1000"
+              height="1200"
+              alt="Candlestick chart with a moving average line"
+              loading="lazy"
+            />
+            <figcaption>
+              <span class="chip"><i class="dot"></i> Live-market examples</span>
+              <strong>Learn to read the chart, not the noise.</strong>
+              <span>Trends, structure and price action explained step by step.</span>
+            </figcaption>
+          </figure>
+          <figure class="g-a">
+            <img
+              src="assets/gallery-2.webp"
+              width="800"
+              height="560"
+              alt="Rising line chart with volume bars"
+              loading="lazy"
+            />
+            <figcaption>
+              <strong>Ask. Discuss. Understand.</strong>
+              <span>Doubt-solving built into the learning.</span>
+            </figcaption>
+          </figure>
+          <figure class="g-b">
+            <img
+              src="assets/gallery-3.webp"
+              width="800"
+              height="560"
+              alt="Candlestick chart with entry, stop-loss and target levels"
+              loading="lazy"
+            />
+            <figcaption>
+              <strong>Plan the risk first.</strong>
+              <span>Stop-loss and position sizing before the trade.</span>
+            </figcaption>
+          </figure>
+        </div>
+      </section>
+      <section id="mentor" class="section wrap mentor-section">
+        <div class="mentor-photo">
+          <img
+            src="assets/mentor.webp"
+            width="850"
+            height="850"
+            alt="GIFM founder and mentor Gagandeep Singh"
+            loading="lazy"
+          /><span>THE PERSON BEHIND THE PROCESS</span>
+        </div>
+        <div class="mentor-bio">
+          <div class="eyebrow">02 / MEET YOUR MENTOR</div>
+          <h2>Gagandeep<br /><em>Singh.</em></h2>
+          <div class="role">FOUNDER & MENTOR · GIFM TRADERS ACADEMY</div>
+          <p class="lead">
+            Professional stock trader. Trainer.<br />Your guide to a more
+            structured approach.
+          </p>
+          <p>
+            GIFM brings practical market education and mentorship together. The
+            focus is on developing your understanding of analysis, managing
+            risk, and making thoughtful decisions.
+          </p>
+          <p>
+            Explore real-time market examples, ask questions, and connect the
+            concepts you learn with the way markets behave.
+          </p>
+          <a
+            class="text-link"
+            href="https://www.youtube.com/@GIFM-TradersAcademy"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Get to know GIFM on YouTube <span>↗</span></a
+          >
+        </div>
+      </section>
+      <section id="batches" class="section batch-section">
+        <div class="wrap">
+          <div class="section-heading">
+            <div>
+              <div class="eyebrow">03 / FIND YOUR RHYTHM</div>
+              <h2>Learning that fits<br />your journey.</h2>
+            </div>
+            <p>
+              Speak with the academy about current schedules, fees, course
+              coverage, and the right starting point for you.
+            </p>
+          </div>
+          <div class="batch-grid">
+            <article>
+              <span class="batch-label">BUILD YOUR FOUNDATION</span>
+              <h3>Regular batches</h3>
+              <p>
+                A structured learning route for building your understanding of
+                the stock market, one concept at a time.
+              </p>
+              <ul>
+                <li>Step-by-step learning</li>
+                <li>Core market concepts</li>
+                <li>A consistent learning routine</li>
+              </ul>
+              <button
+                class="button outline"
+                data-enquire
+                data-interest="Regular batch"
+              >
+                Explore regular batches ↗
+              </button>
+            </article>
+            <article class="featured">
+              <span class="batch-label">PUT CONCEPTS INTO CONTEXT</span>
+              <h3>Mentorship batches</h3>
+              <p>
+                Connect theory to market behaviour through guided learning and
+                discussion around live-market examples.
+              </p>
+              <ul>
+                <li>Mentor-led learning</li>
+                <li>Market analysis discussions</li>
+                <li>Focus on process and discipline</li>
+              </ul>
+              <button
+                class="button"
+                data-enquire
+                data-interest="Mentorship batch"
+              >
+                Explore mentorship ↗
+              </button>
+            </article>
+            <article>
+              <span class="batch-label">MAKE ROOM FOR QUESTIONS</span>
+              <h3>Weekend sessions</h3>
+              <p>
+                Revisit concepts, discuss questions, and strengthen the
+                understanding you have built during the week.
+              </p>
+              <ul>
+                <li>Concept clarification</li>
+                <li>Doubt-solving discussions</li>
+                <li>Review and reflection</li>
+              </ul>
+              <button
+                class="button outline"
+                data-enquire
+                data-interest="Weekend sessions"
+              >
+                Ask about weekends ↗
+              </button>
+            </article>
+          </div>
+          <p class="batch-note">
+            Batch availability and inclusions are confirmed by the academy at
+            the time of enquiry.
+          </p>
+        </div>
+      </section>
+      <section class="section wrap audience">
+        <div>
+          <div class="eyebrow">A PLACE TO START. ROOM TO GROW.</div>
+          <h2>Wherever you are,<br />keep learning.</h2>
+        </div>
+        <div class="audience-grid">
+          <article>
+            <span>01</span>
+            <h3>New to the markets?</h3>
+            <p>Start with the language, concepts, and fundamentals.</p>
+          </article>
+          <article>
+            <span>02</span>
+            <h3>Already exploring?</h3>
+            <p>Bring structure to what you have learned on your own.</p>
+          </article>
+          <article>
+            <span>03</span>
+            <h3>Working professional?</h3>
+            <p>Ask about a learning schedule that suits your routine.</p>
+          </article>
+          <article>
+            <span>04</span>
+            <h3>Looking for clarity?</h3>
+            <p>Revisit your process, psychology, and approach to risk.</p>
+          </article>
+        </div>
+      </section>
+      <section class="community wrap">
+        <div>
+          <div class="eyebrow">STAY CURIOUS. STAY CONNECTED.</div>
+          <h2>Your learning doesn’t<br />stop here.</h2>
+          <p>Explore GIFM’s content and get a feel for the academy.</p>
+        </div>
+        <div class="social-list">
+          <a
+            href="https://www.youtube.com/@GIFM-TradersAcademy"
+            target="_blank"
+            rel="noopener noreferrer"
+            ><span>YouTube<small>Explore videos & market education</small></span
+            ><span>↗</span></a
+          ><a
+            href="https://www.instagram.com/gifm_traders/?hl=en"
+            target="_blank"
+            rel="noopener noreferrer"
+            ><span>Instagram<small>Follow the academy</small></span
+            ><span>↗</span></a
+          ><a
+            href="https://www.facebook.com/profile.php?id=61575746708376"
+            target="_blank"
+            rel="noopener noreferrer"
+            ><span>Facebook<small>Connect with GIFM</small></span
+            ><span>↗</span></a
+          >
+        </div>
+      </section>
+      <section id="faq" class="section wrap faq-section">
+        <div>
+          <div class="eyebrow">04 / GOOD QUESTIONS</div>
+          <h2>A little clarity<br />before you begin.</h2>
+          <p>
+            Need something else?<br /><a href="tel:+917357114500"
+              >Talk to us: +91 73571 14500 ↗</a
+            >
+          </p>
+        </div>
+        <div class="faqs">
+          <details open>
+            <summary>Can I enquire if I’m a complete beginner?</summary>
+            <p>
+              Yes. Tell the academy you are starting from scratch so the team
+              can recommend a suitable learning path and explain any
+              prerequisites.
+            </p>
+          </details>
+          <details>
+            <summary>What will I learn at GIFM?</summary>
+            <p>
+              The academy covers stock market fundamentals, technical and
+              fundamental analysis, risk management, and trading psychology. Ask
+              the team for the syllabus and inclusions of your selected batch.
+            </p>
+          </details>
+          <details>
+            <summary>What are the next batch dates and fees?</summary>
+            <p>
+              Contact the academy for the latest schedule, duration, format,
+              language, and fees. These details are confirmed directly before
+              enrolment.
+            </p>
+          </details>
+          <details>
+            <summary>How do I request a demo class?</summary>
+            <p>
+              Use any enquiry button to open the form. It prepares a WhatsApp
+              message with your details. Send that message to the academy to
+              request information about demo availability.
+            </p>
+          </details>
+          <details>
+            <summary>Does the training guarantee trading profits?</summary>
+            <p>
+              No. Education does not guarantee returns. Trading involves
+              financial risk, including the loss of capital. Make decisions
+              based on your circumstances and seek qualified advice where
+              appropriate.
+            </p>
+          </details>
+        </div>
+      </section>
+      <section id="enquire" class="final-cta wrap">
+        <svg
+          class="cta-chart"
+          viewBox="0 0 700 160"
+          preserveAspectRatio="none"
+          aria-hidden="true"
+        >
+          <defs>
+            <linearGradient id="ctaFade" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#ffb61e" stop-opacity="0.28" />
+              <stop offset="1" stop-color="#ffb61e" stop-opacity="0" />
+            </linearGradient>
+          </defs>
+          <path
+            class="area"
+            d="M0 150 L70 128 L130 138 L210 96 L280 110 L360 66 L430 82 L510 38 L590 52 L700 8 L700 160 L0 160 Z"
+          />
+          <path
+            pathLength="1"
+            d="M0 150 L70 128 L130 138 L210 96 L280 110 L360 66 L430 82 L510 38 L590 52 L700 8"
+          />
+        </svg>
+        <span class="eyebrow">YOUR NEXT STEP STARTS HERE</span>
+        <h2>Build knowledge.<br /><em>Trade with perspective.</em></h2>
+        <p>Let’s find the right learning path for you.</p>
+        <button class="button" data-enquire>
+          Enquire about a demo class <span>↗</span></button
+        ><a class="cta-call" href="tel:+917357114500">Or call +91 73571 14500</a
+        ><span class="cta-decoration" aria-hidden="true">↗</span>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <canvas id="footer-candles" aria-hidden="true"></canvas>
+      <div class="wrap">
+        <div class="footer-cta">
+          <div>
+            <h2>Ready to understand the market?</h2>
+            <p>
+              Ask about batches, fees and the right starting point for you.
+            </p>
+          </div>
+          <div class="footer-cta-actions">
+            <button class="button" data-enquire>
+              Enquire now <span>↗</span>
+            </button>
+            <a class="phone" href="tel:+917357114500">+91 73571 14500</a>
+          </div>
+        </div>
+
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <a class="brand" href="#" aria-label="GIFM Traders Academy home"
+              ><img
+                src="assets/logo.jpeg"
+                width="480"
+                height="250"
+                alt="GIFM Traders Academy"
+                loading="lazy"
+            /></a>
+            <p>
+              Practical education. A more informed approach to the markets.
+            </p>
+            <div class="socials">
+              <a
+                href="https://www.youtube.com/@GIFM-TradersAcademy"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="GIFM on YouTube"
+                ><svg viewBox="0 0 24 24" aria-hidden="true">
+                  <rect x="2" y="5" width="20" height="14" rx="4" />
+                  <path class="solid" d="M10 9l5 3-5 3z" /></svg
+              ></a>
+              <a
+                href="https://www.instagram.com/gifm_traders/?hl=en"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="GIFM on Instagram"
+                ><svg viewBox="0 0 24 24" aria-hidden="true">
+                  <rect x="3" y="3" width="18" height="18" rx="5" />
+                  <circle cx="12" cy="12" r="4" />
+                  <circle class="solid" cx="17.5" cy="6.5" r="1.1" /></svg
+              ></a>
+              <a
+                href="https://www.facebook.com/profile.php?id=61575746708376"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="GIFM on Facebook"
+                ><svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path
+                    d="M14 8h3V4h-3a4 4 0 0 0-4 4v2H7v4h3v6h4v-6h3l1-4h-4V8z"
+                  /></svg
+              ></a>
+            </div>
+          </div>
+
+          <div class="footer-col">
+            <h4>Explore</h4>
+            <a href="#learn">What you’ll learn</a>
+            <a href="#mentor">Your mentor</a>
+            <a href="#batches">Our batches</a>
+            <a href="#faq">FAQs</a>
+          </div>
+
+          <div class="footer-col">
+            <h4>Batches</h4>
+            <button class="link-btn" data-enquire data-interest="Regular batch">
+              Regular batches
+            </button>
+            <button
+              class="link-btn"
+              data-enquire
+              data-interest="Mentorship batch"
+            >
+              Mentorship batches
+            </button>
+            <button
+              class="link-btn"
+              data-enquire
+              data-interest="Weekend sessions"
+            >
+              Weekend sessions
+            </button>
+            <button class="link-btn" data-enquire>Demo class</button>
+          </div>
+
+          <div class="footer-col contact">
+            <h4>Contact</h4>
+            <small>EMAIL</small>
+            <a class="contact-line" href="mailto:contact@gifmtraders.com"
+              >contact@gifmtraders.com</a
+            >
+            <small>PHONE &amp; WHATSAPP</small>
+            <a class="contact-line" href="tel:+917357114500"
+              >+91 73571 14500</a
+            >
+          </div>
+        </div>
+
+        <p class="disclaimer">
+          <strong>Risk disclosure.</strong> For educational purposes only.
+          Content is not investment advice or a recommendation to buy or sell
+          securities. Trading and investing involve risk, including possible
+          loss of capital. No returns or outcomes are guaranteed.
+        </p>
+
+        <div class="footer-bottom">
+          <span>© <span id="year">2026</span> GIFM Traders Academy</span>
+          <div>
+            <button class="plain" id="privacy-open">Enquiry privacy</button
+            ><a
+              href="https://www.gifmtraders.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Main website ↗</a
+            ><a class="to-top" href="#main">Back to top ↑</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <div class="sticky-cta">
+      <div class="wrap">
+        <div>
+          <strong>Your trading journey. A clearer direction.</strong
+          ><span>Explore learning with GIFM Traders Academy</span>
+        </div>
+        <button class="button small" data-enquire>Enquire now ↗</button>
+      </div>
+    </div>
+    <dialog id="enquiry-dialog" aria-labelledby="dialog-title">
+      <button class="close" aria-label="Close enquiry">×</button>
+      <div class="eyebrow">LET’S TALK ABOUT YOUR GOALS</div>
+      <h2 id="dialog-title">Start your enquiry.</h2>
+      <p class="dialog-intro">
+        Share a little about yourself. We’ll prepare a message for you to send
+        to GIFM on WhatsApp.
+      </p>
+      <form id="enquiry-form">
+        <label
+          >Full name<input
+            name="name"
+            autocomplete="name"
+            required
+            minlength="2"
+            maxlength="80"
+            placeholder="Your full name"
+        /></label>
+        <div class="form-row">
+          <label
+            >City<input
+              name="city"
+              autocomplete="address-level2"
+              maxlength="80"
+              placeholder="Your city"
+              required /></label
+          ><label
+            >Experience<select name="experience">
+              <option>Beginner</option>
+              <option>Intermediate</option>
+              <option>Experienced trader</option>
+              <option>Investor</option>
+            </select></label
+          >
+        </div>
+        <label
+          >I’m interested in<select name="interest">
+            <option>Demo class</option>
+            <option>Regular batch</option>
+            <option>Mentorship batch</option>
+            <option>Weekend sessions</option>
+          </select></label
+        ><label
+          >Your question <span>(optional)</span
+          ><textarea
+            name="question"
+            maxlength="500"
+            rows="2"
+            placeholder="What would you like to know?"
+          ></textarea>
+        </label>
+        <p class="form-note">
+          Your details are included in a WhatsApp draft. They reach the academy
+          only when you send it. No registration or payment is completed here.
+        </p>
+        <button type="submit" class="button">
+          Continue to WhatsApp <span>↗</span>
+        </button>
+        <p id="form-status" role="status"></p>
+      </form>
+    </dialog>
+    <dialog id="privacy-dialog" aria-labelledby="privacy-title">
+      <button class="close" aria-label="Close privacy information">×</button>
+      <div class="eyebrow">YOUR ENQUIRY</div>
+      <h2 id="privacy-title">How your details are used</h2>
+      <p>
+        This landing page prepares a WhatsApp enquiry on your device. Form
+        details are not saved to a database by this page.
+      </p>
+      <p>
+        When you continue, the information you enter is included in a WhatsApp
+        draft. Sending that message shares it with GIFM Traders Academy and is
+        subject to WhatsApp’s privacy practices.
+      </p>
+      <p>
+        GIFM can use your message to respond to your enquiry. For questions
+        about your information, contact
+        <a href="mailto:contact@gifmtraders.com">contact@gifmtraders.com</a>.
+      </p>
+    </dialog>
+  </body>
+</html>
