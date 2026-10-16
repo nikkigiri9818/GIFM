@@ -484,6 +484,19 @@ dialog {
   .mentor-bio .lead {
     font-size: 19px;
   }
+  .mentor-slide {
+    height: 210px;
+  }
+  .mentor-slide-btn {
+    width: 32px;
+    height: 32px;
+  }
+  .mentor-slide-btn.prev {
+    left: 8px;
+  }
+  .mentor-slide-btn.next {
+    right: 8px;
+  }
   .gallery {
     grid-template-columns: 1fr;
     gap: 14px;

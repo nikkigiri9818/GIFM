@@ -207,13 +207,124 @@
   ].join(",");
   const spotCards = document.querySelectorAll(spotSelector);
   spotCards.forEach((card) => card.setAttribute("data-spot", ""));
-  if (finePointer && !reduce) {
-    spotCards.forEach((card) => {
-      card.addEventListener("pointermove", (e) => {
-        const r = card.getBoundingClientRect();
-        card.style.setProperty("--mx", e.clientX - r.left + "px");
-        card.style.setProperty("--my", e.clientY - r.top + "px");
+  /* ---------- 3) Mentor Gallery Slider (Left-to-Right) ---------- */
+  function initMentorSlider() {
+    const wrap = document.getElementById("mentorSliderWrap");
+    if (!wrap) return;
+
+    const track = document.getElementById("mentorSliderTrack");
+    const slides = wrap.querySelectorAll(".mentor-slide");
+    const prevBtn = document.getElementById("mentorPrevBtn");
+    const nextBtn = document.getElementById("mentorNextBtn");
+    const dots = wrap.querySelectorAll(".mentor-dot");
+
+    if (!track || slides.length === 0) return;
+
+    let currentIndex = 0;
+    const totalSlides = slides.length;
+    let autoPlayTimer = null;
+    let isPaused = false;
+
+    function updateSlider(index) {
+      currentIndex = (index + totalSlides) % totalSlides;
+      track.style.transform = `translateX(-${currentIndex * 100}%)`;
+
+      dots.forEach((dot, idx) => {
+        dot.classList.toggle("active", idx === currentIndex);
+      });
+    }
+
+    function nextSlide() {
+      updateSlider(currentIndex + 1);
+    }
+
+    function prevSlide() {
+      updateSlider(currentIndex - 1);
+    }
+
+    function startAutoPlay() {
+      stopAutoPlay();
+      if (!isPaused && !reduce) {
+        autoPlayTimer = setInterval(nextSlide, 3500);
+      }
+    }
+
+    function stopAutoPlay() {
+      if (autoPlayTimer) {
+        clearInterval(autoPlayTimer);
+        autoPlayTimer = null;
+      }
+    }
+
+    if (nextBtn) {
+      nextBtn.addEventListener("click", () => {
+        nextSlide();
+        startAutoPlay();
+      });
+    }
+
+    if (prevBtn) {
+      prevBtn.addEventListener("click", () => {
+        prevSlide();
+        startAutoPlay();
+      });
+    }
+
+    dots.forEach((dot, idx) => {
+      dot.addEventListener("click", () => {
+        updateSlider(idx);
+        startAutoPlay();
       });
     });
+
+    wrap.addEventListener("mouseenter", () => {
+      isPaused = true;
+      stopAutoPlay();
+    });
+
+    wrap.addEventListener("mouseleave", () => {
+      isPaused = false;
+      startAutoPlay();
+    });
+
+    // Touch swipe support for mobile
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+    wrap.addEventListener(
+      "touchstart",
+      (e) => {
+        isPaused = true;
+        stopAutoPlay();
+        touchStartX = e.changedTouches[0].clientX;
+      },
+      { passive: true },
+    );
+
+    wrap.addEventListener(
+      "touchend",
+      (e) => {
+        touchEndX = e.changedTouches[0].clientX;
+        const diff = touchStartX - touchEndX;
+        if (Math.abs(diff) > 35) {
+          if (diff > 0) {
+            nextSlide();
+          } else {
+            prevSlide();
+          }
+        }
+        isPaused = false;
+        startAutoPlay();
+      },
+      { passive: true },
+    );
+
+    startAutoPlay();
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initMentorSlider);
+  } else {
+    initMentorSlider();
   }
 })();
