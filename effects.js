@@ -322,9 +322,198 @@
     startAutoPlay();
   }
 
+  /* ---------- 4) Live Classroom Video Slider ---------- */
+  function initVideoSlider() {
+    const root = document.querySelector("[data-video-slider]");
+    if (!root) return;
+
+    const viewport = root.querySelector(".vslider-viewport");
+    const track = root.querySelector(".vslider-track");
+    const prevBtn = document.querySelector(".vslider-btn.prev");
+    const nextBtn = document.querySelector(".vslider-btn.next");
+    const dotsWrap = root.querySelector(".vslider-dots");
+    const cards = [...track.querySelectorAll(".vslider-card")];
+    const videos = [...track.querySelectorAll(".vcard-video")];
+
+    if (!cards.length) return;
+
+    // Single active video playback management
+    videos.forEach((video) => {
+      const cardMedia = video.closest(".vcard-media");
+      const playBtn = cardMedia ? cardMedia.querySelector(".vcard-play-btn") : null;
+
+      function updatePlayState(isPlaying) {
+        if (cardMedia) {
+          cardMedia.classList.toggle("is-playing", isPlaying);
+        }
+      }
+
+      video.addEventListener("play", () => {
+        // Pause all other videos
+        videos.forEach((other) => {
+          if (other !== video && !other.paused) {
+            other.pause();
+          }
+        });
+        updatePlayState(true);
+      });
+
+      video.addEventListener("pause", () => {
+        updatePlayState(false);
+      });
+
+      video.addEventListener("ended", () => {
+        updatePlayState(false);
+      });
+
+      if (playBtn) {
+        playBtn.addEventListener("click", (e) => {
+          e.stopPropagation();
+          if (video.paused) {
+            video.play();
+          } else {
+            video.pause();
+          }
+        });
+      }
+
+      // Clicking video toggles play if paused
+      video.addEventListener("click", () => {
+        if (video.paused) {
+          video.play();
+        }
+      });
+    });
+
+    function getGap() {
+      return parseFloat(getComputedStyle(track).gap) || 24;
+    }
+
+    function getStep() {
+      return cards[0].getBoundingClientRect().width + getGap();
+    }
+
+    function buildDots() {
+      if (!dotsWrap) return;
+      dotsWrap.innerHTML = "";
+      cards.forEach((_, i) => {
+        const dot = document.createElement("button");
+        dot.type = "button";
+        dot.className = "vslider-dot" + (i === 0 ? " active" : "");
+        dot.setAttribute("aria-label", "Go to video " + (i + 1));
+        dot.addEventListener("click", () => {
+          goToIndex(i);
+        });
+        dotsWrap.appendChild(dot);
+      });
+    }
+
+    function update() {
+      const step = getStep();
+      const current = Math.min(cards.length - 1, Math.max(0, Math.round(viewport.scrollLeft / step)));
+
+      if (dotsWrap) {
+        const dots = dotsWrap.querySelectorAll(".vslider-dot");
+        dots.forEach((dot, i) => {
+          dot.classList.toggle("active", i === current);
+        });
+      }
+
+      if (prevBtn) prevBtn.disabled = viewport.scrollLeft <= 5;
+      if (nextBtn) {
+        const maxScroll = viewport.scrollWidth - viewport.clientWidth - 5;
+        nextBtn.disabled = viewport.scrollLeft >= maxScroll;
+      }
+    }
+
+    function goToIndex(index) {
+      const step = getStep();
+      viewport.scrollTo({
+        left: index * step,
+        behavior: reduce ? "auto" : "smooth"
+      });
+    }
+
+    if (prevBtn) {
+      prevBtn.addEventListener("click", () => {
+        const step = getStep();
+        viewport.scrollBy({ left: -step, behavior: reduce ? "auto" : "smooth" });
+      });
+    }
+
+    if (nextBtn) {
+      nextBtn.addEventListener("click", () => {
+        const step = getStep();
+        viewport.scrollBy({ left: step, behavior: reduce ? "auto" : "smooth" });
+      });
+    }
+
+    let raf = 0;
+    viewport.addEventListener("scroll", () => {
+      cancelAnimationFrame(raf);
+      raf = requestAnimationFrame(update);
+    });
+
+    // Mouse Drag support for desktop
+    let isDown = false;
+    let startX = 0;
+    let scrollLeft = 0;
+
+    viewport.addEventListener("pointerdown", (e) => {
+      if (e.pointerType !== "mouse" || e.button !== 0) return;
+      isDown = true;
+      viewport.classList.add("is-dragging");
+      startX = e.pageX - viewport.offsetLeft;
+      scrollLeft = viewport.scrollLeft;
+      viewport.setPointerCapture(e.pointerId);
+    });
+
+    viewport.addEventListener("pointermove", (e) => {
+      if (!isDown) return;
+      e.preventDefault();
+      const x = e.pageX - viewport.offsetLeft;
+      const walk = (x - startX) * 1.4;
+      viewport.scrollLeft = scrollLeft - walk;
+    });
+
+    function endDrag() {
+      if (!isDown) return;
+      isDown = false;
+      viewport.classList.remove("is-dragging");
+    }
+
+    viewport.addEventListener("pointerup", endDrag);
+    viewport.addEventListener("pointercancel", endDrag);
+
+    // Pause videos when section scrolls out of view
+    if ("IntersectionObserver" in window) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) {
+            videos.forEach((v) => {
+              if (!v.paused) v.pause();
+            });
+          }
+        });
+      }, { threshold: 0.1 });
+      observer.observe(root);
+    }
+
+    window.addEventListener("resize", () => {
+      update();
+    });
+
+    buildDots();
+    update();
+  }
+
   if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", initMentorSlider);
+    document.addEventListener("DOMContentLoaded", () => {
+      initMentorSlider();
+      initVideoSlider();
+    });
   } else {
     initMentorSlider();
+    initVideoSlider();
   }
 })();
